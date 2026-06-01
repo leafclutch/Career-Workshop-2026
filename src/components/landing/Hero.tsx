@@ -8,9 +8,9 @@ export default function Hero() {
           {/* Badge */}
           <div style={{
             display: 'inline-flex', alignItems: 'center', gap: '8px',
-            background: 'rgba(11,59,145,0.15)', border: '1px solid rgba(11,59,145,0.35)',
+            background: 'var(--badge-bg)', border: '1px solid var(--badge-border)',
             borderRadius: '100px', padding: '6px 16px',
-            fontSize: '12.5px', fontWeight: 600, color: '#93C5FD',
+            fontSize: '12.5px', fontWeight: 600, color: 'var(--accent-text)',
             letterSpacing: '0.8px', textTransform: 'uppercase', marginBottom: '36px',
           }}>
             <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'var(--accent)', display: 'inline-block' }} />
@@ -24,7 +24,7 @@ export default function Hero() {
             marginBottom: '22px', maxWidth: '760px', marginLeft: 'auto', marginRight: 'auto',
           }}>
             Build Your Future<br />
-            <em style={{ fontStyle: 'normal', color: '#93C5FD' }}>In Technology</em>
+            <em style={{ fontStyle: 'normal', color: 'var(--accent-text)' }}>In Technology</em>
           </h1>
 
           {/* Subtitle */}

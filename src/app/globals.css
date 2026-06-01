@@ -1,30 +1,58 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background:    #070B14;
-  --color-surface:       #0F172A;
-  --color-surface-2:     #162032;
+  --color-background:    #F8FAFC;
+  --color-surface:       #FFFFFF;
+  --color-surface-2:     #F1F5F9;
   --color-primary:       #0B3B91;
   --color-primary-hover: #2563EB;
-  --color-accent:        #34D399;
-  --color-foreground:    #F8FAFC;
-  --color-muted:         #94A3B8;
-  --color-muted-2:       #64748B;
+  --color-accent:        #059669;
+  --color-foreground:    #0F172A;
+  --color-muted:         #475569;
+  --color-muted-2:       #94A3B8;
   --font-family-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
+/* ── Light mode (default) ── */
 :root {
-  --bg:       #070B14;
-  --surface:  #0F172A;
-  --surface-2:#162032;
-  --primary:  #0B3B91;
-  --primary-h:#2563EB;
-  --accent:   #34D399;
-  --text:     #F8FAFC;
-  --muted:    #94A3B8;
-  --muted-2:  #64748B;
-  --border:   rgba(255,255,255,0.08);
-  --border-s: rgba(255,255,255,0.05);
+  --bg:           #F8FAFC;
+  --surface:      #FFFFFF;
+  --surface-2:    #F1F5F9;
+  --primary:      #0B3B91;
+  --primary-h:    #2563EB;
+  --accent:       #059669;
+  --text:         #0F172A;
+  --muted:        #475569;
+  --muted-2:      #94A3B8;
+  --border:       rgba(0,0,0,0.08);
+  --border-s:     rgba(0,0,0,0.04);
+  --nav-bg:       rgba(248,250,252,0.92);
+  --accent-text:  #1D4ED8;
+  --tag-bg:       rgba(0,0,0,0.05);
+  --badge-bg:     rgba(11,59,145,0.08);
+  --badge-border: rgba(11,59,145,0.20);
+  --border-hover: rgba(0,0,0,0.15);
+}
+
+/* ── Dark mode ── */
+html.dark {
+  --bg:           #070B14;
+  --surface:      #0F172A;
+  --surface-2:    #162032;
+  --primary:      #0B3B91;
+  --primary-h:    #2563EB;
+  --accent:       #34D399;
+  --text:         #F8FAFC;
+  --muted:        #94A3B8;
+  --muted-2:      #64748B;
+  --border:       rgba(255,255,255,0.08);
+  --border-s:     rgba(255,255,255,0.05);
+  --nav-bg:       rgba(7,11,20,0.92);
+  --accent-text:  #93C5FD;
+  --tag-bg:       rgba(255,255,255,0.05);
+  --badge-bg:     rgba(11,59,145,0.15);
+  --badge-border: rgba(11,59,145,0.35);
+  --border-hover: rgba(255,255,255,0.15);
 }
 
 *,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
@@ -59,13 +87,27 @@ body {
 }
 .cw-nav-toggle { display:none; }
 .cw-nav-cta {
-  background:var(--primary); color:var(--text);
+  background:var(--primary); color:#FFFFFF;
   font-size:14px; font-weight:600;
   padding:10px 22px; border-radius:8px;
   text-decoration:none; white-space:nowrap;
   transition:background 0.2s;
 }
 .cw-nav-cta:hover { background:var(--primary-h); }
+
+/* ── Theme toggle button ── */
+.cw-theme-toggle {
+  background:transparent; border:1px solid var(--border);
+  color:var(--muted); border-radius:8px;
+  padding:7px; cursor:pointer; display:flex;
+  align-items:center; justify-content:center;
+  transition:color 0.2s, border-color 0.2s, background 0.2s;
+  flex-shrink:0;
+}
+.cw-theme-toggle:hover {
+  color:var(--text); border-color:var(--border-hover);
+  background:var(--surface-2);
+}
 
 /* ── Outcome cards ── */
 .cw-outcome-card { background:var(--surface); padding:40px 36px; transition:background 0.2s; }
@@ -87,7 +129,7 @@ body {
   display:flex; flex-direction:column; gap:20px;
   transition:border-color 0.2s;
 }
-.cw-testimonial-card:hover { border-color:rgba(255,255,255,0.14); }
+.cw-testimonial-card:hover { border-color:var(--border-hover); }
 
 /* ── Form controls ── */
 .cw-input {
@@ -104,7 +146,7 @@ body {
 /* ── Buttons ── */
 .cw-btn-primary {
   display:inline-flex; align-items:center; gap:8px;
-  background:var(--primary); color:var(--text);
+  background:var(--primary); color:#FFFFFF;
   font-size:15px; font-weight:600;
   padding:14px 28px; border-radius:9px;
   text-decoration:none; border:none;
@@ -122,10 +164,10 @@ body {
   cursor:pointer; font-family:inherit;
   transition:color 0.2s,border-color 0.2s;
 }
-.cw-btn-secondary:hover { color:var(--text); border-color:rgba(255,255,255,0.18); }
+.cw-btn-secondary:hover { color:var(--text); border-color:var(--border-hover); }
 
 .cw-btn-submit {
-  width:100%; background:var(--primary); color:var(--text);
+  width:100%; background:var(--primary); color:#FFFFFF;
   font-size:15px; font-weight:600; padding:14px;
   border-radius:9px; border:none; cursor:pointer;
   font-family:inherit; transition:background 0.2s,transform 0.15s;

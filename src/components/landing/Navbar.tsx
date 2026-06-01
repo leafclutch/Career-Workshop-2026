@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import ThemeToggle from '@/components/ThemeToggle'
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
@@ -10,7 +11,7 @@ export default function Navbar() {
   return (
     <nav style={{
       position: 'sticky', top: 0, zIndex: 100,
-      background: 'rgba(7,11,20,0.92)',
+      background: 'var(--nav-bg)',
       backdropFilter: 'blur(20px)',
       WebkitBackdropFilter: 'blur(20px)',
       borderBottom: '1px solid var(--border)',
@@ -49,19 +50,24 @@ export default function Navbar() {
             </li>
           </ul>
 
-          {/* Mobile toggle */}
-          <button
-            className="cw-nav-toggle"
-            aria-label="Menu"
-            onClick={() => setOpen(!open)}
-            style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--muted)', padding: '4px' }}
-          >
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <line x1="3" y1="6" x2="21" y2="6" />
-              <line x1="3" y1="12" x2="21" y2="12" />
-              <line x1="3" y1="18" x2="21" y2="18" />
-            </svg>
-          </button>
+          {/* Right controls */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+            <ThemeToggle />
+
+            {/* Mobile toggle */}
+            <button
+              className="cw-nav-toggle"
+              aria-label="Menu"
+              onClick={() => setOpen(!open)}
+              style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--muted)', padding: '4px' }}
+            >
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <line x1="3" y1="6" x2="21" y2="6" />
+                <line x1="3" y1="12" x2="21" y2="12" />
+                <line x1="3" y1="18" x2="21" y2="18" />
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
 
@@ -76,7 +82,7 @@ export default function Navbar() {
           <Link href="#agenda" onClick={() => setOpen(false)} style={{ fontSize: '14px', fontWeight: 500, color: 'var(--muted)', textDecoration: 'none' }}>Agenda</Link>
           <Link href="#speaker" onClick={() => setOpen(false)} style={{ fontSize: '14px', fontWeight: 500, color: 'var(--muted)', textDecoration: 'none' }}>About</Link>
           <Link href="#register" onClick={() => setOpen(false)} style={{
-            background: 'var(--primary)', color: 'var(--text)', fontSize: '14px', fontWeight: 600,
+            background: 'var(--primary)', color: '#FFFFFF', fontSize: '14px', fontWeight: 600,
             padding: '10px 22px', borderRadius: '8px', textDecoration: 'none', textAlign: 'center', marginTop: '4px',
           }}>
             Reserve Your Seat

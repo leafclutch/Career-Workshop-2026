@@ -27,7 +27,11 @@ const META_PIXEL_ID = '2224648138071979'
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        {/* Prevent flash of wrong theme by applying stored preference before paint */}
+        <script dangerouslySetInnerHTML={{ __html: `try{var t=localStorage.getItem('theme');if(t==='dark')document.documentElement.classList.add('dark')}catch(e){}` }} />
+      </head>
       <body className={inter.className}>
         {children}
 

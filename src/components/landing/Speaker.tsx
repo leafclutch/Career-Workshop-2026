@@ -24,8 +24,8 @@ export default function Speaker() {
             {/* Tag */}
             <div style={{
               display: 'inline-flex', alignItems: 'center', gap: '6px',
-              background: 'rgba(11,59,145,0.2)', border: '1px solid rgba(11,59,145,0.3)',
-              color: '#93C5FD', fontSize: '12px', fontWeight: 600,
+              background: 'var(--badge-bg)', border: '1px solid var(--badge-border)',
+              color: 'var(--accent-text)', fontSize: '12px', fontWeight: 600,
               letterSpacing: '0.8px', textTransform: 'uppercase',
               padding: '5px 14px', borderRadius: '100px', marginBottom: '24px',
             }}>
@@ -47,7 +47,7 @@ export default function Speaker() {
               {['AI Engineer', 'ML Engineer', 'Product Builder'].map((role) => (
                 <span key={role} style={{
                   fontSize: '13px', fontWeight: 500, color: 'var(--muted)',
-                  background: 'rgba(255,255,255,0.05)', border: '1px solid var(--border)',
+                  background: 'var(--tag-bg)', border: '1px solid var(--border)',
                   borderRadius: '6px', padding: '5px 12px',
                 }}>
                   {role}
